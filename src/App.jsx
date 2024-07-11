@@ -60,7 +60,7 @@ function App() {
     document.getElementById("display").innerText = clip.description;
   }
   return (
-    <div className='conatiner' id='drum-machine' onKeyDown={playAudio}>
+    <div className='container' id='drum-machine' onKeyDown={playAudio}>
       <h1>FCC Drum Machine</h1>
       <div className='whole-drum'>
         {audioClips.map((clip, index) => (

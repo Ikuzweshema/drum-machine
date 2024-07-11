@@ -10,6 +10,8 @@
     grid-template-rows: 1fr 1fr 1fr;
     margin: 50px auto;
     width: min-content;
+    border: 2px solid #eeee;
+    padding: 2rem;
   }
   
   .drum-pad {
