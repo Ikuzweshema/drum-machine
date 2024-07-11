@@ -49,14 +49,25 @@ function App() {
       description: "Closed HH",
     },
   ]
+  function playAudio(e) {
+    const clip = audioClips.find(clip => clip.keyTrigger === e.key.toUpperCase())
+    if (!clip) return;
+
+    (document.getElementById(clip.keyTrigger)).play().catch(e => {
+      console.log(e);
+    })
+    document.getElementById('drum' + clip.keyTrigger)?.focus()
+    document.getElementById("display").innerText = clip.description;
+  }
   return (
-    <div className='conatiner' id='drum-machine'>
+    <div className='conatiner' id='drum-machine' onKeyDown={playAudio}>
       <h1>FCC Drum Machine</h1>
       <div className='whole-drum'>
-        {audioClips.map((clip,index) => (
+        {audioClips.map((clip, index) => (
           <Drum audioClip={clip} key={index} />
         ))}
       </div>
+      <div id='display'></div>
     </div>
   )
 }
